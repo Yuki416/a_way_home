@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://u6hl2insfds4"
+path="res://.godot/imported/Rushia death.mp3-c0f0f6744bf912b4c3c38096caca3216.mp3str"
+
+[deps]
+
+source_file="res://a_way_home/survivor template/Audio/my audio/Rushia death.mp3"
+dest_files=["res://.godot/imported/Rushia death.mp3-c0f0f6744bf912b4c3c38096caca3216.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,150 @@
+[gd_scene load_steps=22 format=3 uid="uid://bedu5qn4i7xwc"]
+
+[ext_resource type="Texture2D" uid="uid://c0epljkxldw36" path="res://a_way_home/Enemies/spritesheet/ghost.png" id="1_82i03"]
+[ext_resource type="Script" path="res://a_way_home/Rushia ghost.gd" id="1_x43x3"]
+[ext_resource type="Texture2D" uid="uid://44o87w0xm8ee" path="res://a_way_home/Enemies/sprites/Ghost-shocked/ghost-shocked.png" id="2_qpg42"]
+[ext_resource type="Texture2D" uid="uid://crvmscvslrg2s" path="res://a_way_home/Enemies/spritesheet/Force-Field/force-field1.png" id="3_js2nw"]
+[ext_resource type="Texture2D" uid="uid://gges4siwp4e7" path="res://a_way_home/Enemies/spritesheet/Force-Field/force-field5.png" id="4_ohx7y"]
+[ext_resource type="Texture2D" uid="uid://8x8vu3umqupm" path="res://a_way_home/Enemies/spritesheet/ghost-fury.png" id="5_e082x"]
+[ext_resource type="PackedScene" uid="uid://31ggif1r7rs" path="res://a_way_home/Utility/hurt_box.tscn" id="7_m5345"]
+[ext_resource type="PackedScene" uid="uid://ks6cumh2bipy" path="res://a_way_home/Utility/hit_box.tscn" id="8_g3rql"]
+[ext_resource type="AudioStream" uid="uid://c6gj7gggtvxjs" path="res://a_way_home/survivor template/Audio/my audio/Gram–Schmidt.wav" id="9_e2gcu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_284v0"]
+atlas = ExtResource("1_82i03")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dn7ev"]
+atlas = ExtResource("1_82i03")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vnk8f"]
+atlas = ExtResource("1_82i03")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ts6vw"]
+atlas = ExtResource("1_82i03")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l7nfr"]
+atlas = ExtResource("2_qpg42")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f48eg"]
+atlas = ExtResource("5_e082x")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5mg16"]
+atlas = ExtResource("5_e082x")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h7t2b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_284v0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dn7ev")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vnk8f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ts6vw")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_l7nfr")
+}, {
+"duration": 5.0,
+"texture": ExtResource("3_js2nw")
+}, {
+"duration": 5.0,
+"texture": ExtResource("4_ohx7y")
+}],
+"loop": true,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f48eg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5mg16")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ng8qw"]
+radius = 8.0
+height = 18.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v6pn0"]
+size = Vector2(19, 21)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lhln2"]
+size = Vector2(11.75, 13.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wp1h5"]
+radius = 69.0652
+
+[node name="Rushia ghost" type="CharacterBody2D"]
+collision_layer = 5
+collision_mask = 5
+motion_mode = 1
+script = ExtResource("1_x43x3")
+experience = 5
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_h7t2b")
+animation = &"attack"
+frame_progress = 0.331955
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_ng8qw")
+
+[node name="HurtBox" parent="." instance=ExtResource("7_m5345")]
+collision_layer = 4
+collision_mask = 4
+HurtBoxType = 0
+
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+visible = false
+position = Vector2(0.5, -0.5)
+shape = SubResource("RectangleShape2D_v6pn0")
+
+[node name="HitBox" parent="." instance=ExtResource("8_g3rql")]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" parent="HitBox" index="0"]
+visible = false
+position = Vector2(-0.125, 0)
+shape = SubResource("RectangleShape2D_lhln2")
+
+[node name="PlayerDetectionArea" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="PlayerDetect" type="CollisionShape2D" parent="PlayerDetectionArea"]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_wp1h5")
+
+[node name="snd_hit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_e2gcu")
+volume_db = -15.0
+
+[connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]
+[connection signal="body_entered" from="PlayerDetectionArea" to="." method="_on_player_detection_area_body_entered"]
+[connection signal="body_exited" from="PlayerDetectionArea" to="." method="_on_player_detection_area_body_exited"]
+
+[editable path="HurtBox"]
+[editable path="HitBox"]

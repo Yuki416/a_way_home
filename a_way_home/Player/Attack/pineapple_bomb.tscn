@@ -1,0 +1,70 @@
+[gd_scene load_steps=10 format=3 uid="uid://cta5t3qi3tv72"]
+
+[ext_resource type="Script" path="res://a_way_home/Player/Attack/pineapple_bomb.gd" id="1_bcek3"]
+[ext_resource type="Texture2D" uid="uid://50456x3cgw3v" path="res://a_way_home/weapon/pineapple_bomb/pineapple_0001.png" id="1_gsy1x"]
+[ext_resource type="Texture2D" uid="uid://ebd6j2swmdyh" path="res://a_way_home/weapon/pineapple_bomb/pineapple_0002.png" id="2_g33ka"]
+[ext_resource type="Texture2D" uid="uid://b0ny8jy0er2rg" path="res://a_way_home/weapon/pineapple_bomb/pineapple_0003.png" id="3_s4e30"]
+[ext_resource type="Texture2D" uid="uid://c6bfmh4mgwhsq" path="res://a_way_home/weapon/pineapple_bomb/pineapple_0004.png" id="4_a7a84"]
+[ext_resource type="Texture2D" uid="uid://c8xstqssq0rb0" path="res://a_way_home/weapon/pineapple_bomb/pineapple_0005.png" id="5_eyx3w"]
+[ext_resource type="AudioStream" uid="uid://dmt4qlenav82v" path="res://a_way_home/survivor template/Audio/my audio/gura_pineapple.mp3" id="7_auxj2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_em47m"]
+size = Vector2(11, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v7d6x"]
+animations = [{
+"frames": [{
+"duration": 0.8,
+"texture": ExtResource("1_gsy1x")
+}, {
+"duration": 0.8,
+"texture": ExtResource("2_g33ka")
+}, {
+"duration": 0.8,
+"texture": ExtResource("3_s4e30")
+}, {
+"duration": 0.8,
+"texture": ExtResource("4_a7a84")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_eyx3w")
+}],
+"loop": false,
+"name": &"bomb",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_gsy1x")
+}],
+"loop": false,
+"name": &"fly",
+"speed": 5.0
+}]
+
+[node name="Pineapple_bomb" type="Area2D" groups=["attack"]]
+top_level = true
+scale = Vector2(0.1, 0.1)
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_bcek3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_em47m")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_v7d6x")
+animation = &"fly"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[node name="snd_play" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_auxj2")
+autoplay = true
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,61 @@
+[gd_scene load_steps=4 format=3 uid="uid://dkvifaf7hhiwt"]
+
+[ext_resource type="Script" path="res://a_way_home/Utility/item_option.gd" id="1_3xknf"]
+[ext_resource type="Texture2D" uid="uid://hyw8d6e6dn8y" path="res://a_way_home/survivor template/Textures/Items/Weapons/sword.png" id="1_mxk5d"]
+[ext_resource type="FontFile" uid="uid://cqmxlxonew8a5" path="res://assets/fonts/Cubic_11/fonts/ttf/Cubic_11_1.100_R.ttf" id="2_nurnj"]
+
+[node name="ItemOption" type="ColorRect"]
+custom_minimum_size = Vector2(360, 100)
+anchors_preset = -1
+anchor_right = 0.312
+anchor_bottom = 0.154
+offset_right = 0.575989
+offset_bottom = 0.207993
+color = Color(0.54902, 0.54902, 0.54902, 1)
+script = ExtResource("1_3xknf")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 50.0
+offset_bottom = 50.0
+color = Color(0.243137, 0.490196, 0.494118, 1)
+
+[node name="ItemIcon" type="TextureRect" parent="ColorRect"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_mxk5d")
+
+[node name="lbl_name" type="Label" parent="."]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 10.0
+offset_right = 120.0
+offset_bottom = 50.0
+theme_override_fonts/font = ExtResource("2_nurnj")
+text = "Name"
+horizontal_alignment = 1
+
+[node name="lbl_description" type="Label" parent="."]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 52.0
+offset_right = 335.0
+offset_bottom = 95.0
+theme_override_fonts/font = ExtResource("2_nurnj")
+theme_override_font_sizes/font_size = 14
+text = "des"
+
+[node name="lbl_level" type="Label" parent="."]
+layout_mode = 0
+offset_left = 297.0
+offset_top = 10.0
+offset_right = 337.0
+offset_bottom = 33.0
+theme_override_fonts/font = ExtResource("2_nurnj")
+text = "level :1"
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

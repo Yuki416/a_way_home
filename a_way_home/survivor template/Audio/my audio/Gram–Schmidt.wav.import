@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c6gj7gggtvxjs"
+path="res://.godot/imported/Gram–Schmidt.wav-6addb08adde5eb1677ea44842db2f77a.sample"
+
+[deps]
+
+source_file="res://a_way_home/survivor template/Audio/my audio/Gram–Schmidt.wav"
+dest_files=["res://.godot/imported/Gram–Schmidt.wav-6addb08adde5eb1677ea44842db2f77a.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

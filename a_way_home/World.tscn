@@ -1,0 +1,114 @@
+[gd_scene load_steps=13 format=3 uid="uid://cjg4r1tcsgin7"]
+
+[ext_resource type="Texture2D" uid="uid://p358bmr44qlf" path="res://a_way_home/Enemies/sprites/World/Night_BG.png" id="1_850e5"]
+[ext_resource type="Script" path="res://a_way_home/World.gd" id="1_u2f4t"]
+[ext_resource type="PackedScene" uid="uid://bsd42ir3a14ov" path="res://a_way_home/Player/human_player.tscn" id="3_cbc15"]
+[ext_resource type="PackedScene" uid="uid://bedu5qn4i7xwc" path="res://a_way_home/Rushia ghost.tscn" id="3_oxdey"]
+[ext_resource type="PackedScene" uid="uid://dwqiml08xxeqe" path="res://a_way_home/Utility/enemy_spawner.tscn" id="4_k3hyg"]
+[ext_resource type="Texture2D" uid="uid://hea1j03kmpir" path="res://a_way_home/Player/swampy/swampy.png" id="5_5wd7y"]
+[ext_resource type="PackedScene" uid="uid://dary4kuc46weo" path="res://a_way_home/Objects/exp.tscn" id="5_78qtm"]
+[ext_resource type="AudioStream" uid="uid://co1iedyrpgw8r" path="res://a_way_home/survivor template/Audio/my audio/Rushia Lord of the Screams Black Metal潤羽るしあブラックメタル.mp3" id="6_q82sw"]
+[ext_resource type="AudioStream" uid="uid://bjtm8h3kf6mdn" path="res://a_way_home/survivor template/Audio/my audio/silly creepy crawly.mp3" id="8_t2lby"]
+[ext_resource type="AudioStream" uid="uid://coghwar4ym5ho" path="res://a_way_home/survivor template/Audio/my audio/creep-crawdly_idea.wav" id="10_s3sfi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xhegx"]
+size = Vector2(317, 47.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xmtla"]
+size = Vector2(20, 2556)
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_u2f4t")
+
+[node name="Night_BG" type="Sprite2D" parent="."]
+texture_filter = 1
+texture_repeat = 2
+texture = ExtResource("1_850e5")
+region_enabled = true
+region_rect = Rect2(0, 0, 2556, 2556)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Night_BG"]
+position = Vector2(-89, 42)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Night_BG/StaticBody2D"]
+position = Vector2(97.5, 41.25)
+shape = SubResource("RectangleShape2D_xhegx")
+
+[node name="Panel" type="Panel" parent="Night_BG/StaticBody2D"]
+offset_left = -58.0
+offset_top = 22.0
+offset_right = 255.0
+offset_bottom = 62.0
+
+[node name="Wall" type="StaticBody2D" parent="Night_BG"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Night_BG/Wall"]
+position = Vector2(1277, -5)
+shape = SubResource("RectangleShape2D_xmtla")
+
+[node name="Wall3" type="StaticBody2D" parent="Night_BG"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Night_BG/Wall3"]
+position = Vector2(-1279.43, -1.14307)
+shape = SubResource("RectangleShape2D_xmtla")
+
+[node name="Wall2" type="StaticBody2D" parent="Night_BG"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Night_BG/Wall2"]
+position = Vector2(-1.29868, -1277.36)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_xmtla")
+
+[node name="Wall4" type="StaticBody2D" parent="Night_BG"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Night_BG/Wall4"]
+position = Vector2(-0.999969, 1277)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_xmtla")
+
+[node name="Rushia ghost" parent="." instance=ExtResource("3_oxdey")]
+position = Vector2(140, -53)
+
+[node name="Human_player" parent="." instance=ExtResource("3_cbc15")]
+position = Vector2(257, -35)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("5_5wd7y")
+
+[node name="Camera2D" type="Camera2D" parent="Sprite2D"]
+
+[node name="EnemySpawner" parent="." instance=ExtResource("4_k3hyg")]
+
+[node name="Loot" type="Node2D" parent="." groups=["loot"]]
+
+[node name="Exp" parent="Loot" instance=ExtResource("5_78qtm")]
+exp = 10
+
+[node name="Exp2" parent="Loot" instance=ExtResource("5_78qtm")]
+position = Vector2(-27, 28)
+exp = 10
+
+[node name="Exp3" parent="Loot" instance=ExtResource("5_78qtm")]
+position = Vector2(39, 55)
+exp = 10
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_q82sw")
+volume_db = -25.0
+
+[node name="end_game" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_t2lby")
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_s3sfi")
+volume_db = -15.0

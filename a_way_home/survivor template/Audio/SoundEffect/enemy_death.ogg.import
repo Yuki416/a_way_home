@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b8lp6hskmnvpa"
+path="res://.godot/imported/enemy_death.ogg-bc2b783cca4be92d8164c75359f59651.oggvorbisstr"
+
+[deps]
+
+source_file="res://a_way_home/survivor template/Audio/SoundEffect/enemy_death.ogg"
+dest_files=["res://.godot/imported/enemy_death.ogg-bc2b783cca4be92d8164c75359f59651.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://ffnbs7wgunu3"
+path="res://.godot/imported/Lose.ogg-8d068a960abe329904ffd0bfce00c309.oggvorbisstr"
+
+[deps]
+
+source_file="res://a_way_home/survivor template/Audio/SoundEffect/Lose.ogg"
+dest_files=["res://.godot/imported/Lose.ogg-8d068a960abe329904ffd0bfce00c309.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

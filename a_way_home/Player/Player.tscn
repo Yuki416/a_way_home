@@ -1,0 +1,54 @@
+[gd_scene load_steps=7 format=3 uid="uid://dnrhaxxgfjqa0"]
+
+[ext_resource type="Texture2D" uid="uid://bd60wqux6wxbr" path="res://a_way_home/Player/dragon girl/girl form/dragon girl 00.png" id="1_0sq2w"]
+[ext_resource type="Script" path="res://a_way_home/Player/Player.gd" id="1_u4fwg"]
+[ext_resource type="Texture2D" uid="uid://cdjy5sx202qd2" path="res://a_way_home/Player/dragon girl/girl form/dragon girl 02_changed.png" id="3_rwn3l"]
+[ext_resource type="Texture2D" uid="uid://cfh4rp5i713ll" path="res://a_way_home/Player/dragon girl/girl form/dragon girl 03_version2-2.png" id="4_5d1mq"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jn64m"]
+radius = 8.60001
+height = 40.8
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o58uu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_0sq2w")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_rwn3l")
+}],
+"loop": false,
+"name": &"run",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_5d1mq")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}]
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+motion_mode = 1
+script = ExtResource("1_u4fwg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2.60001, 2.60001)
+shape = SubResource("CapsuleShape2D_jn64m")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1.60001, 1.60001)
+scale = Vector2(0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_o58uu")
+animation = &"up"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)

@@ -1,0 +1,45 @@
+[gd_scene load_steps=8 format=3 uid="uid://dtx5yqqlpr584"]
+
+[ext_resource type="AudioStream" uid="uid://u6hl2insfds4" path="res://a_way_home/survivor template/Audio/my audio/Rushia death.mp3" id="1_j3c7h"]
+[ext_resource type="Script" path="res://a_way_home/Enemies/explosion.gd" id="1_pw5t6"]
+[ext_resource type="Texture2D" uid="uid://bqotoynw8mexr" path="res://a_way_home/Enemies/sprites/Ghost/ghost1.png" id="2_p2u8w"]
+[ext_resource type="Texture2D" uid="uid://44o87w0xm8ee" path="res://a_way_home/Enemies/sprites/Ghost-shocked/ghost-shocked.png" id="2_rpocw"]
+[ext_resource type="Texture2D" uid="uid://crvmscvslrg2s" path="res://a_way_home/Enemies/spritesheet/Force-Field/force-field1.png" id="4_f6jb3"]
+[ext_resource type="Texture2D" uid="uid://gges4siwp4e7" path="res://a_way_home/Enemies/spritesheet/Force-Field/force-field5.png" id="5_e2u1l"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wtbd5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_p2u8w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_rpocw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_f6jb3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_e2u1l")
+}],
+"loop": false,
+"name": &"death",
+"speed": 1.0
+}]
+
+[node name="Explosion" type="Sprite2D"]
+z_index = 1
+script = ExtResource("1_pw5t6")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_j3c7h")
+volume_db = -15.0
+autoplay = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_wtbd5")
+animation = &"death"
+frame = 3
+frame_progress = 1.0
+
+[connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]

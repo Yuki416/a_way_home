@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cmicg42022ev"
+path="res://.godot/imported/ice.wav-cf817d789d78f67cb114cea10b1bd017.sample"
+
+[deps]
+
+source_file="res://a_way_home/survivor template/Audio/SoundEffect/ice.wav"
+dest_files=["res://.godot/imported/ice.wav-cf817d789d78f67cb114cea10b1bd017.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

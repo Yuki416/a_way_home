@@ -1,0 +1,94 @@
+[gd_scene load_steps=16 format=3 uid="uid://bedu5qn4i7xwc"]
+
+[ext_resource type="Texture2D" uid="uid://c0epljkxldw36" path="res://a_way_home/Enemies/spritesheet/ghost.png" id="1_82i03"]
+[ext_resource type="Script" path="res://a_way_home/Enemies/sprites/World/Rushia ghost.gd" id="1_x43x3"]
+[ext_resource type="Texture2D" uid="uid://44o87w0xm8ee" path="res://a_way_home/Enemies/sprites/Ghost-shocked/ghost-shocked.png" id="2_qpg42"]
+[ext_resource type="Texture2D" uid="uid://crvmscvslrg2s" path="res://a_way_home/Enemies/spritesheet/Force-Field/force-field1.png" id="3_js2nw"]
+[ext_resource type="Texture2D" uid="uid://gges4siwp4e7" path="res://a_way_home/Enemies/spritesheet/Force-Field/force-field5.png" id="4_ohx7y"]
+[ext_resource type="Texture2D" uid="uid://8x8vu3umqupm" path="res://a_way_home/Enemies/spritesheet/ghost-fury.png" id="5_e082x"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_284v0"]
+atlas = ExtResource("1_82i03")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dn7ev"]
+atlas = ExtResource("1_82i03")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vnk8f"]
+atlas = ExtResource("1_82i03")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ts6vw"]
+atlas = ExtResource("1_82i03")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l7nfr"]
+atlas = ExtResource("2_qpg42")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f48eg"]
+atlas = ExtResource("5_e082x")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5mg16"]
+atlas = ExtResource("5_e082x")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h7t2b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_284v0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dn7ev")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vnk8f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ts6vw")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_l7nfr")
+}, {
+"duration": 5.0,
+"texture": ExtResource("3_js2nw")
+}, {
+"duration": 5.0,
+"texture": ExtResource("4_ohx7y")
+}],
+"loop": false,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f48eg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5mg16")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ng8qw"]
+
+[node name="Rushia ghost" type="CharacterBody2D"]
+motion_mode = 1
+script = ExtResource("1_x43x3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_h7t2b")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_ng8qw")

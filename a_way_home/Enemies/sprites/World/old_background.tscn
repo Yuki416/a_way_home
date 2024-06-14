@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://c5iues2mib5vw"]
+
+[ext_resource type="Texture2D" uid="uid://dknr3dciqomo2" path="res://a_way_home/survivor template/Textures/dirt_full_new.png" id="1_c3tf8"]
+
+[node name="Background" type="Sprite2D"]
+visible = false
+texture_filter = 1
+texture_repeat = 2
+texture = ExtResource("1_c3tf8")
+region_enabled = true
+region_rect = Rect2(0, 0, 2000, 1000)

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ipys08s1vw8x"
+path="res://.godot/imported/battleThemeA.mp3-e98e468ee3bb1de81fd8d6e87be703ac.mp3str"
+
+[deps]
+
+source_file="res://a_way_home/survivor template/Audio/Music/battleThemeA.mp3"
+dest_files=["res://.godot/imported/battleThemeA.mp3-e98e468ee3bb1de81fd8d6e87be703ac.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://digyyv1xih5f4"
+path="res://.godot/imported/なんでやねん.wav-8ac951cd2cf1908d0e62fc0fc40a3995.sample"
+
+[deps]
+
+source_file="res://a_way_home/survivor template/Audio/my audio/なんでやねん.wav"
+dest_files=["res://.godot/imported/なんでやねん.wav-8ac951cd2cf1908d0e62fc0fc40a3995.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
