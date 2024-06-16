@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dknr3dciqomo2" path="res://a_way_home/survivor template/Textures/dirt_full_new.png" id="1_i5lhe"]
 [ext_resource type="PackedScene" uid="uid://bsd42ir3a14ov" path="res://a_way_home/Player/human_player.tscn" id="3_cbc15"]
-[ext_resource type="PackedScene" uid="uid://bedu5qn4i7xwc" path="res://a_way_home/World/Rushia ghost.tscn" id="3_oxdey"]
+[ext_resource type="PackedScene" uid="uid://bedu5qn4i7xwc" path="res://a_way_home/Rushia ghost.tscn" id="3_oxdey"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xhegx"]
 size = Vector2(365, 53)

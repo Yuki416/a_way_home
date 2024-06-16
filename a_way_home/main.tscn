@@ -7,19 +7,11 @@
 script = ExtResource("1_o0dax")
 
 [node name="play" type="Button" parent="."]
-offset_left = 403.0
+offset_left = 483.0
 offset_top = 66.0
-offset_right = 522.0
+offset_right = 602.0
 offset_bottom = 138.0
 text = "Play
-"
-
-[node name="quit" type="Button" parent="."]
-offset_left = 555.0
-offset_top = 66.0
-offset_right = 674.0
-offset_bottom = 138.0
-text = "Quit
 "
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("2_6g48q")]
@@ -27,5 +19,3 @@ scale = Vector2(1.3, 1.3)
 transform = Transform2D(1.3, 0, 0, 1.3, 0, 0)
 
 [connection signal="pressed" from="play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]
-[connection signal="pressed" from="quit" to="." method="_on_play_pressed"]

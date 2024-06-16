@@ -27,7 +27,6 @@ func _ready():
 	#var nodes = get_tree().get_nodes_in_group("loot")
 	#var first_node = nodes[0]        
 	#print("First node in group " + "loot" + " is: " + first_node.name)  #first node 是 Loot 
-	Bgm.stream_paused=true
 	if player == null:
 		print("Error: Player node is not found!")
 	if anim == null:

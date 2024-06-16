@@ -7,7 +7,7 @@
 [sub_resource type="Resource" id="Resource_wrhnv"]
 script = ExtResource("3_hpi8f")
 time_start = 0
-time_end = 180
+time_end = 60
 enemy = ExtResource("2_0q7ye")
 enemy_num = 2
 enemy_spawn_delay = 1
